@@ -8,8 +8,16 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Hello',
+      redirect: '/home/-1',
+    },
+    {
+      path: '*',
+      redirect: '/home/-1',
+    },
+    {
+      path: '/home/:roomId',
+      name: 'Home',
       component: Home,
-    }
+    },
   ]
 })

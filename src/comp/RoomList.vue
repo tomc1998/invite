@@ -1,10 +1,10 @@
 <template>
   <ul class="Room-List">
     <li class="Room-List-Item" v-for="room in rooms">
-      <a :href="'/home/' + room.id">
+      <router-link :to="'/home/' + room.id">
         <CircleAvatar v-bind:src="room.pictureURL" />
         <span>{{room.name}}</span>
-      </a>
+      </router-link>
     </li>
   </ul>
 </template>
@@ -19,6 +19,13 @@ export default {
 
   created() {
     this.$store.dispatch('fetchRooms');
+  },
+
+  methods: {
+    onclick(e) {
+      e.preventDefault();
+      this.$router.push(e.target.getAttribute('href'));
+    },
   }
 }
 

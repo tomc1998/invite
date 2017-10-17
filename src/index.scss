@@ -1,3 +1,23 @@
+// Used in backgrounds
+$col-background-red: #c04039;
+
+// Used for backgroud color of foreground eles, like buttons
+$col-red: #ff4a3d;
+
+// An alternate, darker foreground red
+$col-red-darker: #ef3a2d;
+
+// A 'bright' red, for highlighted foreground elements
+$col-red-bright: #ff7a6d;
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
 body { margin: 0; }
 
 ul {

@@ -18,7 +18,7 @@ export default new Vuex.Store({
      */
     addRooms(state, rooms) {
       for (let r of rooms) {
-        Vue.set(state.rooms, r.id, new Room(r.id, r.name, r.users));
+        Vue.set(state.rooms, r.id, new Room(r.id, r.name, r.users, r.pictureURL));
       }
     }
   },

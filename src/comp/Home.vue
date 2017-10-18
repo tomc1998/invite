@@ -1,6 +1,7 @@
 <template>
   <div>
     <RoomList/>
+    <UserList/>
   </div>
 </template>
 

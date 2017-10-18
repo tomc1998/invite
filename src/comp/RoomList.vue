@@ -40,8 +40,9 @@ export default {
   width: 256px;
   height: 100%;
   background-color: $col-background-red;
-
   overflow-y: auto;
+
+  box-shadow: 2px 0 2px rgba(0, 0, 0, 0.5);
 
   .Room-List-Item:nth-child(2n) a {
     background-color: $col-red-darker;
@@ -49,9 +50,11 @@ export default {
 
   .Room-List-Item {
     display: block;
-    height: 64px;
+    height: 68px;
 
     a {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.7);
       display: block;
       width: 100%;
       height: 100%;
@@ -68,7 +71,7 @@ export default {
     span {
       display: inline-block;
       position: relative;
-      bottom: 40%;
+      bottom: 36%;
       margin-left: 20px;
     }
   }

@@ -43,25 +43,30 @@ export default {
   overflow-y: auto;
 
   box-shadow: 2px 0 2px rgba(0, 0, 0, 0.5);
-
-  .Room-List-Item:nth-child(2n) a {
-    background-color: $col-red-darker;
-  }
+  padding-top: 40px;
 
   .Room-List-Item {
     display: block;
-    height: 68px;
+    height: 32px;
+    margin: 0 15px;
+    margin-bottom: 15px;
 
     a {
-      font-size: 18px;
+      border-radius: 999px;
       color: rgba(255, 255, 255, 0.7);
       display: block;
       width: 100%;
       height: 100%;
-      padding: 10px;
       padding-right: 0;
       background-color: $col-red;
+      box-shadow: 0px 0px 2px rgba(255, 255, 255, 0.3) inset;
+
       transition: background-color 0.2s;
+
+      .Avatar-Container {
+        width: 32px;
+        height: 32px;
+      }
     }
 
     a:hover {
@@ -71,7 +76,7 @@ export default {
     span {
       display: inline-block;
       position: relative;
-      bottom: 36%;
+      bottom: 35%;
       margin-left: 20px;
     }
   }

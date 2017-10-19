@@ -26,7 +26,6 @@ export default {
   img {
     display: inline;
     width: inherit;
-    height: inherit;
   }
 }
 </style>

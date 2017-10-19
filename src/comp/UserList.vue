@@ -99,17 +99,22 @@ export default {
     padding-top: $header-height / 3;
     text-align: center;
     font-size: 24px;
-    color: #EEE;
+    color: rgba(255, 255, 255, 0.7);
+    background-color: $col-background-red-darker;
+    box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.4) inset;
+  }
+
+  .User-List-Item a:hover {
+    background-color: $col-red-bright;
   }
 
   .User-List-Item:nth-child(2n) a:hover {
-    color: rgba(255, 255, 255, 0.7);
+    background-color: $col-red;
   }
 
   .User-List-Item {
     display: block;
     height: 68px;
-    margin: 2px 2px;
 
     a {
       font-size: 18px;
@@ -119,12 +124,8 @@ export default {
       height: 100%;
       padding: 10px;
       padding-right: 0;
-      background-color: $col-red-darker;
+      background-color: $col-background-red;
       transition: background-color 0.2s;
-    }
-
-    a:hover {
-      background-color: $col-red-bright;
     }
 
     span {

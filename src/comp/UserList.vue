@@ -1,6 +1,6 @@
 <template>
   <ul class="User-List">
-    <div class="User-List-Header"> Users </div>
+    <div class="User-List-Header"></div>
     <li class="User-List-Item" v-for="user in users">
       <a v-on:click="user-clicked" :id="user.id">
         <CircleAvatar v-bind:src="user.pictureURL" />

@@ -1,12 +1,14 @@
 <template>
   <ul class="Room-List">
     <div class="Profile-Header">
-      <CircleAvatar width="128px" height="128px" src="https://scontent-lht6-1.xx.fbcdn.net/v/t34.0-12/22407539_773317192851836_1113775014_n.jpg?oh=50e971d460df6eea4264bef7510f3117&oe=59E9F0E7"/>
+      <CircleAvatar width="128px" height="128px" 
+        src="https://scontent-lht6-1.xx.fbcdn.net/v/t34.0-12/22407539_773317192851836_1113775014_n.jpg?oh=50e971d460df6eea4264bef7510f3117&oe=59E9F0E7"/>
       <div>Rupert Bergeron</div>
     </div>
     <li class="Room-List-Item" v-for="room in rooms">
       <router-link :to="'/home/' + room.id">
-        <CircleAvatar v-bind:src="room.pictureURL" />
+        <CircleAvatar width="32px" height="32px" 
+          v-bind:src="room.pictureURL" />
         <span>{{room.name}}</span>
       </router-link>
     </li>
@@ -59,6 +61,7 @@ export default {
     box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.4) inset;
     .Avatar-Container {
       margin-bottom: 20px;
+      border: 4px solid #FFF;
     }
   }
 

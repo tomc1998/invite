@@ -34,6 +34,7 @@ export default {
   width: 48px;
   height: 48px;
   border-radius: 50%;
+  border: 2px solid #FFF;
   overflow: hidden;
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
 

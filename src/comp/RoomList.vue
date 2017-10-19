@@ -79,7 +79,7 @@ export default {
       height: 100%;
       padding-right: 0;
       background-color: $col-red;
-      box-shadow: 0px 0px 2px rgba(255, 255, 255, 0.3) inset;
+      box-shadow: -8px 0px 8px rgba(255, 255, 255, 0.3) inset;
 
       transition: background-color 0.2s;
 

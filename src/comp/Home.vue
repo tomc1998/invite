@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Chat/>
     <RoomList/>
     <UserList/>
   </div>

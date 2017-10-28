@@ -2,7 +2,7 @@
   <ul class="Room-List">
     <div class="Profile-Header">
       <CircleAvatar width="128px" height="128px" 
-        src="https://scontent-lht6-1.xx.fbcdn.net/v/t34.0-12/22407539_773317192851836_1113775014_n.jpg?oh=50e971d460df6eea4264bef7510f3117&oe=59E9F0E7"/>
+        src="https://avatars0.githubusercontent.com/u/7818129?s=400&v=4"/>
       <div>Rupert Bergeron</div>
     </div>
     <li class="Room-List-Item" v-for="room in rooms">

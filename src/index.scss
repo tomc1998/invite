@@ -1,6 +1,7 @@
 // Used in backgrounds
-$col-background-red: #c04039;
-$col-background-red-darker: #a02019;
+$col-background-red-lighter: #c07069;
+$col-background-red:         #a02019;
+$col-background-red-darker:  #802019;
 
 // Used for backgroud color of foreground eles, like buttons
 $col-red: #ff4a3d;
@@ -10,6 +11,13 @@ $col-red-darker: #ef3a2d;
 
 // A 'bright' red, for highlighted foreground elements
 $col-red-bright: #ff7a6d;
+
+/*************/
+/**  Sizes  **/
+/*************/
+
+// Height including top / bottom margin of 4px
+$chat-input-height: 56px;
 
 * {
   box-sizing: border-box;

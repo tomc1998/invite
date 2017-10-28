@@ -5,6 +5,9 @@ import Vue from 'vue'
 import App from './App'
 import RoomList from '@/comp/RoomList'
 import UserList from '@/comp/UserList'
+import Chat from '@/comp/Chat'
+import ChatInput from '@/comp/ChatInput'
+import ChatMessageList from '@/comp/ChatMessageList'
 import Home from '@/comp/Home'
 import CircleAvatar from '@/comp/CircleAvatar'
 import router from './router'
@@ -14,6 +17,9 @@ Vue.config.productionTip = false
 
 Vue.component('RoomList', RoomList);
 Vue.component('UserList', UserList);
+Vue.component('Chat', Chat);
+Vue.component('ChatInput', ChatInput);
+Vue.component('ChatMessageList', ChatMessageList);
 Vue.component('Home', Home);
 Vue.component('CircleAvatar', CircleAvatar);
 

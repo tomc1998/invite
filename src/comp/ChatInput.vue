@@ -33,8 +33,8 @@ export default {
     border: none;
     padding: 12px 24px;
     font-size: 18px;
-    color: #000;
-    background-color: #DDD;
+    color: $col-text-black;
+    background-color: $col-text-white;
   }
 }
 

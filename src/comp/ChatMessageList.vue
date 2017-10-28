@@ -19,7 +19,7 @@ export default {
 @import '../index.scss';
 
 .Chat-Message-List-Container {
-  background-color: $col-background-red-lighter;
+  background-color: change-color($col-primll, $lightness:90);
   position: absolute;
   top: 0;
   bottom: 0;

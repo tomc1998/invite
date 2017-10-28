@@ -45,7 +45,7 @@ export default {
   position: fixed;
   width: 256px;
   height: 100%;
-  background-color: $col-background-red;
+  background-color: $col-primd;
   overflow-y: auto;
 
   box-shadow: 2px 0 2px rgba(0, 0, 0, 0.5);
@@ -56,8 +56,8 @@ export default {
     padding-top: $header-height / 6;
     text-align: center;
     font-size: 24px;
-    color: rgba(255, 255, 255, 0.7);
-    background-color: $col-background-red-darker;
+    color: $col-text-whited;
+    background-color: $col-primdd;
     box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.4) inset;
     .Avatar-Container {
       margin-bottom: 20px;
@@ -73,13 +73,13 @@ export default {
 
     a {
       border-radius: 999px;
-      color: rgba(255, 255, 255, 0.7);
+      color: $col-text-whited;
       display: block;
       width: 100%;
       height: 100%;
       padding-right: 0;
-      background-color: $col-red;
-      box-shadow: -8px 0px 8px rgba(255, 255, 255, 0.3) inset;
+      background-color: $col-prim;
+      box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3) inset;
 
       transition: background-color 0.2s;
 
@@ -90,7 +90,7 @@ export default {
     }
 
     a:hover {
-      background-color: $col-red-bright;
+      background-color: $col-priml
     }
 
     span {

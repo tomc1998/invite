@@ -1,16 +1,25 @@
-// Used in backgrounds
-$col-background-red-lighter: #c07069;
-$col-background-red:         #a02019;
-$col-background-red-darker:  #802019;
+// Colors
+//
+// Suffixes:
+// l for lighter, ll for lighter lighter
+// d for darker, dd for darker darker
 
-// Used for backgroud color of foreground eles, like buttons
-$col-red: #ff4a3d;
+$col-primll: #FF857F;
+$col-priml:  #E3544C;
+$col-prim:   #D42E26;	
+$col-primd:  #A2160F;
+$col-primdd: #750600;
 
-// An alternate, darker foreground red
-$col-red-darker: #ef3a2d;
+$col-compll: #65CA71;
+$col-compl:  #3BB049;
+$col-comp:   #1DA52E;	
+$col-compd:  #0B7D19;
+$col-compdd: #005B0B;
 
-// A 'bright' red, for highlighted foreground elements
-$col-red-bright: #ff7a6d;
+$col-text-white:  rgba(255, 255, 255, 0.9);
+$col-text-whited: rgba(255, 255, 255, 0.7);
+$col-text-black:  rgba(  0,   0,   0, 0.9);
+$col-text-blackl: rgba(  0,   0,   0, 0.7);
 
 /*************/
 /**  Sizes  **/

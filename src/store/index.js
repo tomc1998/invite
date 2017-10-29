@@ -2,8 +2,10 @@ import Vuex from 'vuex'
 import Vue from 'vue'
 import Room from './room.js';
 import User from './user.js';
+import Message from './message.js';
 import getRooms from './stub/get_rooms';
 import getUsers from './stub/get_users';
+import getRoomMessages from './stub/get_room_messages';
 
 Vue.use(Vuex);
 
@@ -34,8 +36,48 @@ export default new Vuex.Store({
         Vue.set(state.allUsers, u.id,
           new User(u.id, u.first_name, u.last_name, u.picture_url));
       }
-    }
+    },
+
+    /** Add a list of messages to a given room. Simply appends items to
+    * the list - it's recommended to use the chronoSortRoomMessages
+    * mutation immediately after this one to make sure all the room
+    * messages are in sorted order.
+    *
+    * Duplicate messages will be ignored (by ID)
+    */
+    addRoomMessages(state, [roomID, messages]) {
+      let r = state.rooms[roomID]
+      if (!r) {
+        throw new Error('Room with ID ' + roomID + ' not found when calling' +
+          ' addRoomMessages mutation.');
+      }
+      for (let m of messages) {
+        let duplicated = false;
+        for (let m2 of r.messages) {
+          if (m.id === m2.id) {
+            duplicated = true;
+            break;
+          }
+        }
+        if (!duplicated) {
+          r.messages.push(new Message(m.id, m.body, m.picture_url, m.likes, m.timestamp))
+        }
+      }
+    },
+
+    /** Chronologically sort all the messages of a room. */
+    chronoSortRoomMessages(state, roomID) {
+      let r = state.rooms[roomID]
+      if (!r) {
+        throw new Error('Room with ID ' + roomID + ' not found when calling' +
+          ' chronoSortRoomMessages mutation.');
+      }
+      // Sort with regards to message timestamp
+      r.messages.sort((a, b) => a.timestamp < b.timestamp ? -1 : 1)
+    },
+
   },
+
   actions: {
     /** Action to fetch rooms and populate room list. Will not fetch any messages. */
     fetchRooms(context) {
@@ -53,6 +95,18 @@ export default new Vuex.Store({
       return getUsers(userIDs).then(function(res) {
         context.commit('addUsers', res);
       });
-    }
+    },
+
+    /** Fetch a list of messages in this room. This will get all the old
+    * messages available, and should giv eyou enough (if available) to fill
+    * the screen with messages. Any duplicate messages currently loaded into
+    * the store object will not be duplicated, and the room messages will be
+    * sorted according to timestamp. */
+    fetchRoomMessages(context, roomID) {
+      return getRoomMessages(roomID).then(messages => {
+        context.commit('addRoomMessages', [roomID, messages]);
+        context.commit('chronoSortRoomMessages', roomID);
+      });
+    },
   },
 });

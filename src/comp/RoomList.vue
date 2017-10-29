@@ -73,7 +73,7 @@ export default {
 
     a {
       border-radius: 999px;
-      color: $col-text-whited;
+      color: $col-text-white;
       display: block;
       width: 100%;
       height: 100%;

@@ -18,8 +18,6 @@ export default {
       if (this.height || this.height === 0) {
         style += 'height: ' + this.height + ';\n';
       }
-      console.log(this.width + ' ' + this.height);
-      console.log(style);
       return style;
     },
   },

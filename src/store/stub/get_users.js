@@ -35,7 +35,7 @@ function getUsers(idList) {
         case 5: return {
           id: 5,
           first_name: 'Tom',
-          lastName: 'Cheng',
+          last_name: 'Cheng',
           picture_url: 'https://github.com/identicons/tomc1998.png',
         };
       }

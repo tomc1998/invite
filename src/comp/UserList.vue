@@ -70,7 +70,6 @@ export default {
 
   watch: {
     '$route' (to, from) {
-      console.log(this.$route.params.roomID);
       Vue.set(this, 'roomID', this.$route.params.roomID);
       this.fetchUsers();
     },

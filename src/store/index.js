@@ -10,6 +10,8 @@ import getRoomMessages from './stub/get_room_messages';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  strict: true,
+
   state: {
     /** Rooms this user belongs to. A mapping of room IDs to room objects. */
     rooms: {
@@ -101,9 +103,20 @@ export default new Vuex.Store({
     * messages available, and should giv eyou enough (if available) to fill
     * the screen with messages. Any duplicate messages currently loaded into
     * the store object will not be duplicated, and the room messages will be
-    * sorted according to timestamp. */
+    * sorted according to timestamp.
+    *
+    * This will make an extra request if the room ID given is not available in
+    * the store. After the request if the room still isn't available, this
+    * action will throw an error.
+    */
     fetchRoomMessages(context, roomID) {
-      return getRoomMessages(roomID).then(messages => {
+      let tasks = [];
+      tasks.push(getRoomMessages(roomID))
+      if (!context.state.rooms.hasOwnProperty(roomID)) {
+        tasks.push(context.dispatch('fetchRooms'));
+      }
+      Promise.all(tasks).then(data => {
+        let messages = data[0];
         context.commit('addRoomMessages', [roomID, messages]);
         context.commit('chronoSortRoomMessages', roomID);
       });

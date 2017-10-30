@@ -10,6 +10,7 @@ function getRoomMessages(roomID) {
         picture_url: null,
         likes: 34,
         timestamp: 100,
+        is_yours: false,
       },
       {
         id: 1,
@@ -17,6 +18,7 @@ function getRoomMessages(roomID) {
         picture_url: null,
         likes: 12,
         timestamp: 200,
+        is_yours: true,
       },
       {
         id: 2,
@@ -24,6 +26,7 @@ function getRoomMessages(roomID) {
         picture_url: 'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/22491788_10155146382443230_6401243716705296297_n.jpg?oh=e724602b247647c87966f237c4a2f656&oe=5A8109DF',
         likes: 1231,
         timestamp: 300,
+        is_yours: false,
       }],
 
     1: [{
@@ -32,6 +35,7 @@ function getRoomMessages(roomID) {
       picture_url: null,
       likes: 4,
       timestamp: 400,
+      is_yours: false,
     }],
 
     // This room has no messages (To test what no messages looks like)

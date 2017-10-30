@@ -62,7 +62,7 @@ export default new Vuex.Store({
           }
         }
         if (!duplicated) {
-          r.messages.push(new Message(m.id, m.body, m.picture_url, m.likes, m.timestamp))
+          r.messages.push(new Message(m.id, m.body, m.picture_url, m.likes, m.timestamp, m.is_yours))
         }
       }
     },

@@ -2,7 +2,7 @@
   <div class="Chat-Message-List-Container">
     <ul class="Chat-Message-List">
       <li v-for="m in messages">
-        {{ m.body }}
+        <ChatMessage :message='m'/>
       </li>
     </ul>
   </div>

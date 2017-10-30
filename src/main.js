@@ -8,6 +8,7 @@ import UserList from '@/comp/UserList'
 import Chat from '@/comp/Chat'
 import ChatInput from '@/comp/ChatInput'
 import ChatMessageList from '@/comp/ChatMessageList'
+import ChatMessage from '@/comp/ChatMessage'
 import Home from '@/comp/Home'
 import CircleAvatar from '@/comp/CircleAvatar'
 import router from './router'
@@ -20,6 +21,7 @@ Vue.component('UserList', UserList);
 Vue.component('Chat', Chat);
 Vue.component('ChatInput', ChatInput);
 Vue.component('ChatMessageList', ChatMessageList);
+Vue.component('ChatMessage', ChatMessage);
 Vue.component('Home', Home);
 Vue.component('CircleAvatar', CircleAvatar);
 

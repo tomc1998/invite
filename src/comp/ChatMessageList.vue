@@ -15,6 +15,8 @@ import Vue from 'vue';
 export default {
   name: 'ChatMessageList',
 
+  created() { this.routeUpdated() },
+
   computed: {
     messages() {
       let room = this.$store.state.rooms[this.roomID];
@@ -30,6 +32,11 @@ export default {
       let store = this.$store;
       store.dispatch('fetchRoomMessages', roomID);
     },
+    /** Method called when route is updated. Called from watch() and created(). */
+    routeUpdated() {
+      Vue.set(this, 'roomID', parseInt(this.$route.params.roomID));
+      this.fetchRoomMessages();
+    },
   },
 
   data() {
@@ -39,10 +46,7 @@ export default {
   },
 
   watch: {
-    '$route' (to, from) {
-      Vue.set(this, 'roomID', parseInt(this.$route.params.roomID));
-      this.fetchRoomMessages();
-    },
+    '$route' (to, from) { this.routeUpdated() },
   },
 }
 

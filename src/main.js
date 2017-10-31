@@ -1,7 +1,9 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import './index.scss';
+import 'vue-material/dist/vue-material.css'
 import Vue from 'vue'
+import VueMaterial from 'vue-material'
 import App from './App'
 import RoomList from '@/comp/RoomList'
 import UserList from '@/comp/UserList'
@@ -14,7 +16,9 @@ import CircleAvatar from '@/comp/CircleAvatar'
 import router from './router'
 import store from '@/store'
 
-Vue.config.productionTip = false
+Vue.use(VueMaterial);
+
+Vue.config.productionTip = false;
 
 Vue.component('RoomList', RoomList);
 Vue.component('UserList', UserList);
@@ -32,4 +36,12 @@ new Vue({
   store,
   template: '<App/>',
   components: { App }
+})
+
+// Register matieral themes
+Vue.material.registerTheme('default', {
+  primary: 'deep-orange',
+  accent: 'blue',
+  warn: 'red',
+  background: 'white'
 })

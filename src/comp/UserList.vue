@@ -1,12 +1,13 @@
 <template>
   <ul class="User-List">
     <div class="User-List-Header"></div>
-    <li class="User-List-Item" v-for="user in users">
-      <a v-on:click="user-clicked" :id="user.id">
-        <CircleAvatar v-bind:src="user.pictureURL" />
+    <md-list-item v-on:click="user-clicked" class="User-List-Item" v-for="user in users">
+      <md-ink-ripple/>
+        <md-avatar>
+          <img :src="user.pictureURL"/>
+        </md-avatar>
         <span>{{user.firstName + " " + user.lastName}}</span>
-      </a>
-    </li>
+      </md-list-item>
   </ul>
 </template>
 
@@ -103,29 +104,25 @@ export default {
     box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.4) inset;
   }
 
-  .User-List-Item a:hover {
-    background-color: $col-priml
+  .User-List-Item:hover {
+    background-color: $col-priml;
   }
 
-  .User-List-Item:nth-child(2n) a:hover {
+  .User-List-Item:nth-child(2n):hover {
     background-color: $col-prim;
   }
 
   .User-List-Item {
     display: block;
-    height: 68px;
+    margin: 0;
 
-    a {
-      font-size: 18px;
-      color: $col-text-white;
-      display: block;
-      width: 100%;
-      height: 100%;
-      padding: 10px;
-      padding-right: 0;
-      background-color: $col-primd;
-      transition: background-color 0.2s;
-    }
+    font-size: 18px;
+    color: $col-text-white;
+    display: block;
+    padding: 10px;
+    padding-right: 0;
+    background-color: $col-primd;
+    transition: background-color 0.2s;
 
     span {
       display: inline-block;

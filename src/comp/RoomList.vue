@@ -1,17 +1,21 @@
 <template>
   <ul class="Room-List">
     <div class="Profile-Header">
-      <CircleAvatar width="128px" height="128px" 
-        src="https://avatars0.githubusercontent.com/u/7818129?s=400&v=4"/>
+      <CircleAvatar width="128px" 
+                    height="128px" 
+                    src="https://avatars0.githubusercontent.com/u/7818129?s=400&v=4"/>
       <div>Rupert Bergeron</div>
     </div>
-    <li class="Room-List-Item" v-for="room in rooms">
+    <md-list-item class="Room-List-Item" v-for="room in rooms">
       <router-link :to="'/home/' + room.id">
-        <CircleAvatar width="32px" height="32px" 
-          v-bind:src="room.pictureURL" />
-        <span>{{room.name}}</span>
+        <md-avatar>
+          <img :src="room.pictureURL"/>
+        </md-avatar>
+        <span>
+          {{room.name}}
+        </span>
       </router-link>
-    </li>
+    </md-list-item>
   </ul>
 </template>
 
@@ -67,30 +71,21 @@ export default {
 
   .Room-List-Item {
     display: block;
-    height: 32px;
-    margin: 0 15px;
-    margin-top: 15px;
+    margin: 0;
 
     a {
-      border-radius: 999px;
-      color: $col-text-white;
       display: block;
       width: 100%;
       height: 100%;
-      padding-right: 0;
-      background-color: $col-prim;
-      box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3) inset;
+      background-color: $col-primd;
+      color: $col-text-white;
+      padding: 10px;
 
       transition: background-color 0.2s;
-
-      .Avatar-Container {
-        width: 32px;
-        height: 32px;
-      }
     }
 
     a:hover {
-      background-color: $col-priml
+      background-color: $col-prim
     }
 
     span {

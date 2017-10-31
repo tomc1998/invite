@@ -1,7 +1,8 @@
 <template>
-  <div class="Chat-Input">
-    <input type="text"/>
-  </div>
+  <md-input-container class="Chat-Input">
+    <label>Send a message...</label>
+    <md-textarea></md-textarea>
+  </md-input-container>
 </template>
 
 <script>
@@ -19,23 +20,12 @@ export default {
 
 .Chat-Input {
   position: absolute;
-  bottom: 4px;
-  left: 4px;
-  right: 4px;
+  bottom: 8px;
+  left: 32px;
+  right: 32px;
+  width: auto;
   height: $chat-input-height - 8px;
-  box-shadow: 0 0px 3px rgba(0, 0, 0, 0.5);
-  border-radius: 50px;
   overflow: hidden;
-
-  input {
-    width: 100%;
-    height: 100%;
-    border: none;
-    padding: 12px 24px;
-    font-size: 18px;
-    color: $col-text-black;
-    background-color: $col-text-white;
-  }
 }
 
 </style>

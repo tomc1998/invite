@@ -66,6 +66,11 @@ export default {
     .Avatar-Container {
       margin-bottom: 20px;
       border: 4px solid #FFF;
+      img {
+        position: relative !important;
+        top: 2px !important;
+        left: 2px !important;
+      }
     }
   }
 

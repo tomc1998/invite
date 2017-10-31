@@ -100,6 +100,11 @@ export default {
       margin-left: 20px;
     }
   }
+
+  .Room-List-Item:nth-child(2n) a:hover {
+    background-color: $col-priml;
+  }
+
 }
 
 </style>

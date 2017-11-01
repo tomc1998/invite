@@ -1,7 +1,7 @@
 <template>
-  <md-input-container class="Chat-Input">
+  <md-input-container v-on:keyup.enter.native="submit()" class="Chat-Input">
     <label>Send a message...</label>
-    <md-textarea></md-textarea>
+    <md-input v-model="value"></md-input>
   </md-input-container>
 </template>
 
@@ -9,6 +9,17 @@
 
 export default {
   name: 'ChatInput',
+  data() {
+    return {
+      value: '',
+    }
+  },
+  methods: {
+    submit() {
+      this.$store.commit('addTempMessage', [this.$route.params.roomID, this.value]);
+      this.value = '';
+    }
+  },
 }
 
 </script>

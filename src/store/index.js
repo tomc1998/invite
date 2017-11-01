@@ -20,6 +20,7 @@ export default new Vuex.Store({
     allUsers: {
     },
   },
+
   mutations: {
     /** Add some rooms. Rooms should follow the format returned by the
      * get_rooms request. Should only really be called from the `fetchRooms`
@@ -65,6 +66,24 @@ export default new Vuex.Store({
           r.messages.push(new Message(m.id, m.body, m.picture_url, m.likes, m.timestamp, m.is_yours))
         }
       }
+    },
+
+    /**
+     * Add a temporary message to a room. This is called when you type a
+     * message into the chat input and hit send, but the server hasn't yet
+     * responded with confirmation.
+     *
+     * # Params
+     * * `roomID` - The ID of the room to add the temp message to.
+     * * `message` - This is a string - NOT a message object.
+     */
+    addTempMessage(state, [roomID, message]) {
+      let r = state.rooms[roomID]
+      if (!r) {
+        throw new Error('Room with ID ' + roomID + ' not found when calling' +
+          ' addTempMessage mutation.');
+      }
+      r.tempMessages.push(message);
     },
 
     /** Chronologically sort all the messages of a room. */

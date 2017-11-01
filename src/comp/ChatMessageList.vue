@@ -2,7 +2,10 @@
   <div class="Chat-Message-List-Container">
     <ul class="Chat-Message-List">
       <li v-for="m in messages">
-        <ChatMessage :message='m'/>
+        <ChatMessage :message='m' :isTemp='false' />
+      </li>
+      <li v-for="m in tempMessages">
+        <ChatMessage :message='m' :isTemp='true' />
       </li>
     </ul>
   </div>
@@ -22,6 +25,12 @@ export default {
       let room = this.$store.state.rooms[this.roomID];
       if (room) {
         return room.messages;
+      } else { return null; }
+    },
+    tempMessages() {
+      let room = this.$store.state.rooms[this.roomID];
+      if (room) {
+        return room.tempMessages;
       } else { return null; }
     }
   },

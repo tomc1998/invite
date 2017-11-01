@@ -13,6 +13,17 @@ class Room {
      */
     this.messages = [];
 
+    /**
+     * A list of temporary messages (just strings, not Message objects). These
+     * are messages which you have typed in the chat and sent, but haven't yet
+     * been confirmed by the server.
+     *
+     * Once confirmed, messages in this list will be removed.
+     *
+     * All messages in here are sent by the current client.
+     */
+    this.tempMessages = [];
+
     /** This room's room icon */
     this.pictureURL = pictureURL;
   }

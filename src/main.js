@@ -40,8 +40,17 @@ new Vue({
 
 // Register matieral themes
 Vue.material.registerTheme('default', {
-  primary: 'deep-orange',
-  accent: 'blue',
-  warn: 'red',
+  primary: {
+    color: 'red',
+    hue: '700',
+  },
+  accent: {
+    color: 'green',
+    hue: 'A700',
+  },
+  warn: {
+    color: 'red',
+    hue: 'A700',
+  },
   background: 'white'
 })

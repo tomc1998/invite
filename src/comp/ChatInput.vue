@@ -31,11 +31,11 @@ export default {
 
 .Chat-Input {
   position: absolute;
-  bottom: 8px;
+  bottom: -12px;
   left: 32px;
   right: 32px;
   width: auto;
-  height: $chat-input-height - 8px;
+  height: $chat-input-height - 16px;
   overflow: hidden;
 }
 

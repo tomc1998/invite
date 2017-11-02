@@ -78,7 +78,7 @@ export default new Vuex.Store({
      *
      * # Params
      * * `roomID` - The ID of the room to add the temp message to.
-     * * `message` - This is a string - NOT a message object.
+     * * `message` - A TempMessage
      */
     addTempMessage(state, [roomID, message]) {
       let r = state.rooms[roomID]

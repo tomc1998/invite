@@ -15,6 +15,8 @@ import Home from '@/comp/Home'
 import CircleAvatar from '@/comp/CircleAvatar'
 import router from './router'
 import store from '@/store'
+import beginLongPoll from '@/longpoll';
+import StubConsole from '@/longpoll/stub/Console';
 
 Vue.use(VueMaterial);
 
@@ -28,6 +30,7 @@ Vue.component('ChatMessageList', ChatMessageList);
 Vue.component('ChatMessage', ChatMessage);
 Vue.component('Home', Home);
 Vue.component('CircleAvatar', CircleAvatar);
+Vue.component('StubConsole', StubConsole);
 
 /* eslint-disable no-new */
 new Vue({
@@ -53,4 +56,8 @@ Vue.material.registerTheme('default', {
     hue: 'A700',
   },
   background: 'white'
-})
+});
+
+// Start polling server
+beginLongPoll();
+

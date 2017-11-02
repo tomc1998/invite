@@ -1,12 +1,34 @@
 <template>
-  <div id="app">
+  <div id="app" >
     <router-view/>
+    <StubConsole :showing="consoleShowing" />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+
+  created() {
+    // Add a key listener to show the console
+    let toggleConsole = this.toggleConsole;
+    document.addEventListener('keydown', function(event) {
+      // 192 == backtick
+      if (event.keyCode === 192) { toggleConsole(); }
+    });
+  },
+
+  data() {
+    return {
+      consoleShowing: false,
+    };
+  },
+
+  methods: {
+    toggleConsole() {
+      this.consoleShowing = !this.consoleShowing;
+    }
+  }
 }
 </script>
 

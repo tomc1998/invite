@@ -5,7 +5,7 @@
       {{ message.body }}
     </md-whiteframe>
     <md-whiteframe md-elevation="2" class="Message Message-Temp Message-Ours" v-if="isTemp">
-      {{ message }}
+      {{ message.body }}
     </md-whiteframe>
   </div>
 </template>
@@ -14,10 +14,6 @@
 
 export default {
   name: 'ChatMessage',
-
-  created() {
-    console.log('Hello');
-  },
 
   props: [
     /**

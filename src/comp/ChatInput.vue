@@ -7,6 +7,8 @@
 
 <script>
 
+import TempMessage from '@/store/temp_message';
+
 export default {
   name: 'ChatInput',
   data() {
@@ -16,7 +18,13 @@ export default {
   },
   methods: {
     submit() {
-      this.$store.commit('addTempMessage', [this.$route.params.roomID, this.value]);
+      // Generate a temporary message with a random ID (assume unique among
+      // other temp messages in this room)
+      let tempMessage = new TempMessage(
+        Math.floor(Math.random() * 2000000000),
+        this.value,
+        null);
+      this.$store.commit('addTempMessage', [this.$route.params.roomID, tempMessage]);
       this.value = '';
     }
   },

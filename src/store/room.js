@@ -14,9 +14,9 @@ class Room {
     this.messages = [];
 
     /**
-     * A list of temporary messages (just strings, not Message objects). These
-     * are messages which you have typed in the chat and sent, but haven't yet
-     * been confirmed by the server.
+     * A list of temporary messages (TempMessage objects, not Message objects).
+     * These are messages which you have typed in the chat and sent, but
+     * haven't yet been confirmed by the server.
      *
      * Once confirmed, messages in this list will be removed.
      *

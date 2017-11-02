@@ -2,8 +2,8 @@
   <ul class="Room-List">
     <div class="Profile-Header">
       <CircleAvatar width="128px" 
-                    height="128px" 
-                    src="https://avatars0.githubusercontent.com/u/7818129?s=400&v=4"/>
+      height="128px" 
+      src="https://avatars0.githubusercontent.com/u/7818129?s=400&v=4"/>
       <div>Rupert Bergeron</div>
     </div>
     <md-list-item class="Room-List-Item" v-for="room in rooms">

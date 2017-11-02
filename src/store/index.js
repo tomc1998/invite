@@ -25,9 +25,12 @@ export default new Vuex.Store({
     /** Add some rooms. Rooms should follow the format returned by the
      * get_rooms request. Should only really be called from the `fetchRooms`
      * action.
+     *
+     * Duplicate rooms ignored.
      */
     addRooms(state, rooms) {
       for (let r of rooms) {
+        if (state.rooms.hasOwnProperty(r.id)) { continue; }
         Vue.set(state.rooms, r.id, new Room(r.id, r.name, r.users, r.picture_url));
       }
     },
@@ -100,7 +103,13 @@ export default new Vuex.Store({
   },
 
   actions: {
-    /** Action to fetch rooms and populate room list. Will not fetch any messages. */
+    /**
+     * Action to fetch rooms and populate room list. Will not fetch any messages.
+     * If a room is already added, it will NOT be replaced. This means that
+     * currently, and server side changes to room data will not be updated
+     * until a full page reload. However, this is necessary as otherwise
+     * changing rooms wipes data like cached and temporary messages.
+     */
     fetchRooms(context) {
       return getRooms().then(function(res) {
         context.commit('addRooms', res);

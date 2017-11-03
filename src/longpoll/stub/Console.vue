@@ -32,7 +32,7 @@ export default {
 
   methods: {
     submit() {
-      if (this.value === 'confirm_all_messages') {
+      if (this.value === 'confm') {
         // This command confirms all the temporary messages
         // Find all the rooms and temporary message indexes
         for (let rID of Object.keys(this.rooms)) {

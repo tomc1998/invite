@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <transition name="Message">
     <md-whiteframe md-elevation="2" class="Message" v-if="!isTemp"
       v-bind:class="[message.isOurs ? 'Message-Ours' : 'Message-Theirs']">
       {{ message.body }}
@@ -7,7 +7,7 @@
     <md-whiteframe md-elevation="2" class="Message Message-Temp Message-Ours" v-if="isTemp">
       {{ message.body }}
     </md-whiteframe>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -38,10 +38,13 @@ export default {
 
 /* Styling applied to all messages */
 .Message {
+  position: relative;
+  bottom: 0;
   margin: 10px 24px;
   padding: 16px 24px;
   color: $col-text-white;
   width: 80%;
+  transition: opacity .5s, bottom .5s;
 }
 
 /* Styling applied to only 'our' messages */
@@ -58,6 +61,16 @@ export default {
 .Message-Theirs {
   background-color: $col-prim;
   float: left;
+}
+
+.Message-enter-active, .Message-leave {
+  opacity: 1;
+  bottom: 0;
+}
+
+.Message-enter, .Message-leave-to {
+  opacity: 0;
+  bottom: 8px;
 }
 
 </style>

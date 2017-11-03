@@ -1,7 +1,7 @@
 <template>
   <div class="Chat-Message-List-Container">
     <ul class="Chat-Message-List">
-      <li v-for="m in messages">
+      <li v-for="m in messages" :key="m.id">
         <ChatMessage :message='m' :isTemp='false' />
       </li>
       <li v-for="m in tempMessages">

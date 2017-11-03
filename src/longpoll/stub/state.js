@@ -53,10 +53,13 @@ var functions = {
    * confirm. Here, you provide this ID.
    */
   pushMessageSentConfirmation(roomID, messageID) {
+    // Just fake the new message ID with a random number
     messageQueue.push({
       name: 'message_sent_confirm',
       room_id: roomID,
       message_id: messageID,
+      new_message_id: Math.floor(Math.random() * 1000000000 + 1000000000),
+      timestamp: new Date().getTime(),
     });
     flushMessageQueue();
   },

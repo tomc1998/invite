@@ -59,5 +59,5 @@ Vue.material.registerTheme('default', {
 });
 
 // Start polling server
-beginLongPoll();
+beginLongPoll(store);
 

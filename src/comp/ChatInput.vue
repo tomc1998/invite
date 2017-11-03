@@ -21,7 +21,7 @@ export default {
       // Generate a temporary message with a random ID (assume unique among
       // other temp messages in this room)
       let tempMessage = new TempMessage(
-        Math.floor(Math.random() * 2000000000),
+        Math.floor(Math.random() * 1000000000),
         this.value,
         null);
       this.$store.commit('addTempMessage', [this.$route.params.roomID, tempMessage]);

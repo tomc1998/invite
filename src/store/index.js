@@ -89,6 +89,35 @@ export default new Vuex.Store({
       r.tempMessages.push(message);
     },
 
+    /** Confirm a temporary message. */
+    confirmMessage(state, [roomID, messageID, newMessageID, timestamp]) {
+      let r = state.rooms[roomID]
+      if (!r) {
+        throw new Error('Room with ID ' + roomID + ' not found when calling' +
+          ' confirmMessage mutation.');
+      }
+
+      // Find the temporary message with this ID
+      let message = null;
+      for (let m of r.tempMessages) {
+        console.log(JSON.stringify(m));
+        console.log(JSON.stringify(messageID));
+        if (m.id === messageID) {
+          message = m;
+          break;
+        }
+      }
+      if (message === null) {
+        throw new Error('Tried to confirm a message, but temp message with that' +
+          ' ID does not exist');
+      }
+
+      // Remove from temp messages, and add to 'real' messages
+      r.tempMessages.splice(r.tempMessages.indexOf(message), 1);
+      let m = new Message(newMessageID, message.body, message.pictureURL, 0, timestamp, true);
+      r.messages.push(m);
+    },
+
     /** Chronologically sort all the messages of a room. */
     chronoSortRoomMessages(state, roomID) {
       let r = state.rooms[roomID]

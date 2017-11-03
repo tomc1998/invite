@@ -42,6 +42,7 @@ export default {
           }
         }
       }
+      this.value = '';
     }
   },
 

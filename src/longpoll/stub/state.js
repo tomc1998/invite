@@ -14,8 +14,8 @@ var messageListeners = [];
  * messageListeners will be removed from the list.
  */
 function flushMessageQueue() {
-  for (let m of messageQueue) {
-    if (messageListeners.length === 0) { return; }
+  while (messageQueue.length > 0 && messageListeners.length > 0) {
+    let m = messageQueue.shift();
     let l = messageListeners.shift();
     l(m);
   }
